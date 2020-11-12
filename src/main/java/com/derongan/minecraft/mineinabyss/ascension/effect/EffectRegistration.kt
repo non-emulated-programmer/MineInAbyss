@@ -14,6 +14,7 @@ object EffectRegistration {
             subclass(SoundAscensionEffect.serializer())
             subclass(MaxHealthChangeEffect.serializer())
             subclass(HallucinatingAscensionEffect.serializer())
+            subclass(FullBlindnessEffect.serializer())
         }
     }
 }

@@ -22,12 +22,14 @@ repositories {
     maven { url 'https://oss.sonatype.org/content/groups/public/' }
     maven { url 'https://erethon.de/repo/' } //HeadLib
     maven { url 'http://nexus.okkero.com/repository/maven-releases/' }
+    //maven { url "https://ci.ender.zone/plugin/repository/everything/" } //added to handle econ
     maven githubPackage.invoke("MineInAbyss/guiy")
     maven githubPackage.invoke("MineInAbyss/DeeperWorld")
     maven githubPackage.invoke("MineInAbyss/Idofront")
     maven githubPackage.invoke("MineInAbyss/geary")
     maven githubPackage.invoke("MineInAbyss/KotlinSpice")
     maven { url 'https://jitpack.io' } //JitPack
+    maven { url "https://repo.dmulloy2.net/nexus/repository/public/" } //ProtocolLib - added for packets
     mavenLocal()
 }
 
@@ -44,9 +46,15 @@ publishing {
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:$server_version"
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    //implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC" //added to fix NoClassDefFoundError
     compileOnly "org.cultofclang.minecraft:kotlinspice:$kotlin_version+"
-    compileOnly 'com.github.MilkBowl:VaultAPI:1.7'
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+    implementation group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0-SNAPSHOT" //ProtocolLib - added for packets
+    //implementation group: "com.comphenix.packetwrapper", name: "PacketWrapper.1.13-R0.1-SNAPSHOT", version: "1.13-R0.1-20180825.172109-2" //PacketWrapper - added for packets
+    implementation("com.charleskorn.kaml:kaml:0.22.0") //added to deal with NoSuchMethodError
+    //implementation 'net.ess3:EssentialsX:2.16.1' //added to handle econ
+
 //    compileOnly 'com.badlogicgames.ashley:ashley:1.7.3'
 
     implementation "com.okkero.skedule:skedule:1.2.6"
@@ -55,7 +63,7 @@ dependencies {
     implementation 'com.mineinabyss:geary:1.0.3'
     implementation 'com.derongan.minecraft:guiy:0.1.0-alpha.7'
     implementation 'com.mineinabyss:idofront:0.3.25'
-    compileOnly 'com.derongan.minecraft:deeperworld:0.2.23'
+    implementation 'com.derongan.minecraft:deeperworld:0.2.23'
 }
 
 shadowJar {

@@ -1,5 +1,7 @@
 package com.derongan.minecraft.mineinabyss
 
+import com.comphenix.protocol.ProtocolLibrary //added for ProtocolLib
+import com.comphenix.protocol.ProtocolManager //added for ProtocolLib
 import com.derongan.minecraft.guiy.GuiListener
 import com.derongan.minecraft.mineinabyss.ascension.AscensionListener
 import com.derongan.minecraft.mineinabyss.commands.AscensionCommandExecutor
@@ -30,12 +32,16 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class MineInAbyss : JavaPlugin() {
     private val gearyService = getServiceOrNull<GearyService>("Geary")
+    lateinit var protocolManager: ProtocolManager //added for ProtocolLib
 
     @ExperimentalCommandDSL
     override fun onEnable() {
         // Plugin startup logic
         logger.info("On enable has been called")
         AbyssContext
+
+        //ProtocolLib setup
+        protocolManager = ProtocolLibrary.getProtocolManager()!! //added for ProtocolLib
 
         //Vault setup
         if (econ == null) {

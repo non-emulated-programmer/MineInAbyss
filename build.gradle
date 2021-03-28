@@ -22,13 +22,14 @@ repositories {
     maven { url 'https://repo.mineinabyss.com/releases' }
     maven { url 'https://erethon.de/repo/' } //HeadLib
     maven { url 'https://jitpack.io' }
+    maven  { url 'https://repo.mineinabyss.com/releases' }
 //    mavenLocal()
 }
 
 publishing {
     repositories {
         maven {
-            url = "https://repo.mineinabyss.com/releases"
+            url = "https://repo.mineinabyss.com/releases" //added as bugfix attempt
             credentials {
                 username = findProperty('mineinabyssMavenUsername')
                 password = findProperty('mineinabyssMavenPassword')
@@ -57,6 +58,12 @@ dependencies {
 
     compileOnly 'com.mineinabyss:geary-spigot:0.2.26'
     compileOnly 'com.derongan.minecraft:deeperworld:0.3.41'
+
+    compileOnly platform("com.mineinabyss:kotlinspice:1.4.31-12")//added as bugfix attempt
+    //Add optional deps without specifying a version!//added as bugfix attempt
+    //(The appropriate repo must still be provided for them)//added as bugfix attempt
+    compileOnly "com.github.okkero:skedule"//added as bugfix attempt
+    compileOnly "de.erethon:headlib"//added as bugfix attempt
 
     implementation 'com.derongan.minecraft:guiy:0.1.0-alpha'
     implementation "com.mineinabyss:idofront:0.5.8"

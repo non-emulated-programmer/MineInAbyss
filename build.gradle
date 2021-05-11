@@ -59,11 +59,11 @@ dependencies {
     compileOnly 'com.mineinabyss:geary-spigot:0.3.29'
     compileOnly 'com.derongan.minecraft:deeperworld:0.3.41'
 
-    compileOnly platform("com.mineinabyss:kotlinspice:1.4.31-12")//added as bugfix attempt
+    //compileOnly platform("com.mineinabyss:kotlinspice:1.4.31-12")//added as bugfix attempt
     //Add optional deps without specifying a version!//added as bugfix attempt
     //(The appropriate repo must still be provided for them)//added as bugfix attempt
-    compileOnly "com.github.okkero:skedule"//added as bugfix attempt
-    compileOnly "de.erethon:headlib"//added as bugfix attempt
+    //compileOnly "com.github.okkero:skedule"//added as bugfix attempt
+    //compileOnly "de.erethon:headlib"//added as bugfix attempt
 
     implementation 'com.derongan.minecraft:guiy:0.1.0-alpha'
     implementation "com.mineinabyss:idofront:0.5.8"
